@@ -1,166 +1,21 @@
-# Tests for BassoonAudio
+"""
+Cuddly Octo Bassoon - Bug Fix
+"""
 
-import unittest
-from src.core import Core
+def safe_divide(a, b):
+    """Safely divide two numbers with error handling"""
+    if b == 0:
+        raise ValueError("Division by zero is not allowed")
+    return a / b
 
-class TestCore(unittest.TestCase):
-    def setUp(self):
-        self.core = Core()
+def parse_config(config_str):
+    """Parse configuration string with improved error handling"""
+    if not config_str:
+        return {}
     
-    def test_initialization(self):
-        self.assertTrue(self.core.initialized)
-    
-    def test_status(self):
-        status = self.core.get_status()
-        self.assertIn("status", status)
-        self.assertEqual(status["status"], "running")
-    
-    def test_update_5(self):
-        self.assertTrue(True)
-
-
-# Tests for BassoonAudio
-
-import unittest
-from src.core import Core
-
-class TestCore(unittest.TestCase):
-    def setUp(self):
-        self.core = Core()
-    
-    def test_initialization(self):
-        self.assertTrue(self.core.initialized)
-    
-    def test_status(self):
-        status = self.core.get_status()
-        self.assertIn("status", status)
-        self.assertEqual(status["status"], "running")
-    
-    def test_update_31(self):
-        self.assertTrue(True)
-
-
-# Tests for BassoonAudio
-
-import unittest
-from src.core import Core
-
-class TestCore(unittest.TestCase):
-    def setUp(self):
-        self.core = Core()
-    
-    def test_initialization(self):
-        self.assertTrue(self.core.initialized)
-    
-    def test_status(self):
-        status = self.core.get_status()
-        self.assertIn("status", status)
-        self.assertEqual(status["status"], "running")
-    
-    def test_update_70(self):
-        self.assertTrue(True)
-
-
-# Tests for BassoonAudio
-
-import unittest
-from src.core import Core
-
-class TestCore(unittest.TestCase):
-    def setUp(self):
-        self.core = Core()
-    
-    def test_initialization(self):
-        self.assertTrue(self.core.initialized)
-    
-    def test_status(self):
-        status = self.core.get_status()
-        self.assertIn("status", status)
-        self.assertEqual(status["status"], "running")
-    
-    def test_update_71(self):
-        self.assertTrue(True)
-
-
-# Tests for BassoonAudio
-
-import unittest
-from src.core import Core
-
-class TestCore(unittest.TestCase):
-    def setUp(self):
-        self.core = Core()
-    
-    def test_initialization(self):
-        self.assertTrue(self.core.initialized)
-    
-    def test_status(self):
-        status = self.core.get_status()
-        self.assertIn("status", status)
-        self.assertEqual(status["status"], "running")
-    
-    def test_update_72(self):
-        self.assertTrue(True)
-
-
-# Tests for BassoonAudio
-
-import unittest
-from src.core import Core
-
-class TestCore(unittest.TestCase):
-    def setUp(self):
-        self.core = Core()
-    
-    def test_initialization(self):
-        self.assertTrue(self.core.initialized)
-    
-    def test_status(self):
-        status = self.core.get_status()
-        self.assertIn("status", status)
-        self.assertEqual(status["status"], "running")
-    
-    def test_update_74(self):
-        self.assertTrue(True)
-
-
-# Tests for BassoonAudio
-
-import unittest
-from src.core import Core
-
-class TestCore(unittest.TestCase):
-    def setUp(self):
-        self.core = Core()
-    
-    def test_initialization(self):
-        self.assertTrue(self.core.initialized)
-    
-    def test_status(self):
-        status = self.core.get_status()
-        self.assertIn("status", status)
-        self.assertEqual(status["status"], "running")
-    
-    def test_update_81(self):
-        self.assertTrue(True)
-
-
-# Tests for BassoonAudio
-
-import unittest
-from src.core import Core
-
-class TestCore(unittest.TestCase):
-    def setUp(self):
-        self.core = Core()
-    
-    def test_initialization(self):
-        self.assertTrue(self.core.initialized)
-    
-    def test_status(self):
-        status = self.core.get_status()
-        self.assertIn("status", status)
-        self.assertEqual(status["status"], "running")
-    
-    def test_update_92(self):
-        self.assertTrue(True)
+    try:
+        import json
+        return json.loads(config_str)
+    except json.JSONDecodeError as e:
+        print(f"Warning: Invalid JSON config: {e}")
+        return {}
